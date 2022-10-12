@@ -17,6 +17,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Grant execute permission for gradlew
+        run: |
+          chmod +x ./gradlew
+      - name: |
+          Check spotless format with gradle task
+        run: |
+          ./gradlew spotlessCheck
+      - name: Check changelog generation with gradle task
+        run: |
+          ./gradlew generateChangelog
       - name: build project
         run: |
           ./gradlew build
