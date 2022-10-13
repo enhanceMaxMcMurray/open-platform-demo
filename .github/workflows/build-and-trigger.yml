@@ -24,9 +24,6 @@ jobs:
           Check spotless format with gradle task
         run: |
           ./gradlew spotlessCheck
-      - name: Check changelog generation with gradle task
-        run: |
-          ./gradlew generateChangelog
       - name: build project
         run: |
           ./gradlew -x test build
